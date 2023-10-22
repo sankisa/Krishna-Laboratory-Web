@@ -36,7 +36,7 @@ The Krishna Laboratory website is designed to promote and provide information ab
 To run this website locally, follow these steps:
 
 1. Clone the repository to your local machine:
-
+https://github.com/sankisa/Krishna-Laboratory-Web.git
 
 2. To view the website, simple open the 'index.html' file in your web browser.
 
