@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div class="Registration">
+    <h1>User Registration Form</h1>
+    
+    <form id="registrationForm" onsubmit="return validateForm()" method="post">
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <br>
+
+        <label for="location">Location:</label>
+        <select id="location" name="location" required>
+            <option value="">Select a location</option>
+            <option value="Location 1">USA</option>
+            <option value="Location 2">INDIA</option>
+            <option value="Location 3">UK</option>
+            <option value="Location 4">UAE</option>
+        </select>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <br>
+
+        <input type="submit" value="Register">
+    
+    </form>
+
+</div>
+    <script src="script2.js"></script>
+
+
+    <div class="Social-Media-Info">
+        <h2>Stay Connected!</h2>
+        <p>&copy; Krishna Laboratory</p>
+        <p><strong>Follow us on:</strong> <a href="https://www.facebook.com/YourPageName" target="_blank">Facebook</a></p>
+        <p><strong>Follow us on:</strong> <a href="https://www.instagram.com/YourProfileName" target="_blank">Instagram</a></p>
+    </div>
+</footer>
+</body>
+</html>

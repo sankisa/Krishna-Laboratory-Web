@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book an Appointment</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+</head>
+<body>
+    <div class="Appointment-setter">
+    <h1>Schedule an appointment</h1>
+    <form action="process_appointment.php" method="post">
+        <label for="patientName">Patient Name:</label>
+        <input type="text" id="patientName" name="patientName" required>
+        
+        <label for="doctorName">Doctor's Name:</label>
+        <input type="text" id="doctorName" name="doctorName" required>
+        
+        <label for="appointmentDate">Appointment Date:</label>
+        <input type="date" id="appointmentDate" name="appointmentDate" required>
+        
+        <label for="appointmentTime">Appointment Time:</label>
+        <input type="time" id="appointmentTime" name="appointmentTime" required>
+        
+        <label for="contactNumber">Contact Number:</label>
+        <input type="tel" id="contactNumber" name="contactNumber" required>
+        
+        <label for="reason">Reason for Appointment:</label>
+        <textarea id="reason" name="reason" rows="5" required></textarea>
+        
+        <input type="submit" value="Book Appointment">
+
+    </form>
+</div>
+</body>
+</html>

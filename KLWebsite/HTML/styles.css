@@ -1,0 +1,439 @@
+/*External Styles */
+body {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-repeat:no-repeat;
+   
+    background-image:-moz-linear-gradient();
+    background-size: cover;
+
+}
+body {
+    background-image: url('Photos/18108804.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+}
+
+/* Internal Styles */
+
+.header1 {
+    position: relative;
+    overflow: hidden;
+    height: 200px; 
+}
+
+.image-banner {
+    display: flex;
+    animation: scroll 20s linear infinite;
+}
+.image-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+header {
+    background-color: hwb(93 27% 60%); 
+    width: 100%;
+    height:100%;
+    display: flex; 
+    align-items: center; 
+    padding: 10px; 
+    border-style: groove;
+    
+    
+}
+
+.logo img {
+    width: 100px; 
+    height: auto; 
+    margin-right: 20px; 
+}
+
+.Business-name h1 {
+    color: rgb(18, 18, 17); 
+    font-size: 70px; 
+    font-style: italic;
+    font-weight: 200;
+   
+}
+    .caption p{
+    color: rgb(19, 18, 17);
+    font-size: 30px;
+    font-family: cursive;
+}
+            
+           
+
+nav ul {
+    list-style: none;
+    font-style: italic;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 100;
+    
+    
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+    font-size: medium;
+}
+.button-container{
+    text-align: right;
+    position:absolute;
+    top:150px;
+    right:10px;
+    border-radius:10px;
+    
+    padding: 30p 20px;
+    color:#fff;
+    
+
+}
+.button-container button{
+
+    top:150px;
+    right:10px;
+    border-radius:10px;
+    background-color:#362e23 ;
+    padding: 30p 20px;
+    color:#fff;
+    margin-right: 10px;
+    cursor:pointer;
+
+}
+    
+
+.menu button {
+            font-family: cursive;
+            padding: 10px 20px;
+            background-color: #d09d54;
+            color: #2a0a0a;
+            border: none;
+            border-radius: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .menu button:hover {
+            background-color: #445e3e;
+
+        }
+
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+}
+
+h2 {
+    background-color: beige;
+
+    font-size: 50px;
+    font-style: italic;
+    font-weight: 100;
+}
+h3 {
+    font-size: 30px;
+    font-style: oblique;
+}
+
+/* Dropped Down Menu */
+nav ul {
+    display:list-item;
+    justify-content:space-between;
+    
+}
+
+/* Use of Web Fonts */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* GIF Image */
+section img {
+    max-width: 200%;
+    size-adjust:inherit;
+}
+.product {
+    border: 1px solid #ddd; 
+    padding: 10px;
+    align-items: center; 
+}
+.product img {
+    max-width: 200px;
+    
+}
+.product-details h2{
+    border-radius: 10px;
+    margin-top: 5px;
+    text-align: center;
+    /*background-color: antiquewhite;*/
+    }
+.cartbutton button{
+        margin-top: -30%;
+    background-color: #3498db;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 10%;
+        cursor: pointer;
+        text-align: center;
+        
+      
+
+    }
+.price p{
+    padding: 10%;
+    border-radius: 10%;
+    text-align: center;
+    background-color: rgb(136, 136, 41); 
+    position: relative;
+    margin-top:-20%; 
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align:center;
+
+}
+
+.contact-form{
+    
+    background-blend-mode: color;
+    background-position: 0cqmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:left; 
+    border-radius: 10px;
+    
+    flex-direction: column;
+}
+.contact-form h{
+    background-color: burlywood;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: larger;
+    font-weight: 300;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:black;
+
+}
+.contact-form label{
+    font-display:initial;
+    font-style: italic;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-weight:bold ;  
+}
+.contact-form input{
+    background-color: antiquewhite;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+.owner-info{
+    display: table;
+   font-size:medium;
+   color: black;
+   font-family: 'Times New Roman', Times, serif;
+}
+.owner-info p{
+    color:#fff;
+    background-color: black;
+
+}
+.Appointment-setter h1{
+    justify-content: center;
+    align-items: center;
+    text-align:center; 
+    border-radius: 10px;
+    flex-direction: column;
+    display: block;
+    color:black;
+}
+.Appointment-setter{
+    background-blend-mode: color;
+    background-position: 0cqmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:left; 
+    border-radius: 10px;
+    
+    flex-direction: column;
+}
+.Appointment-setter label{
+font-display:initial;
+font-style: italic;
+border-radius: 5px;
+margin-bottom: 10px;
+font-weight:bold ;  
+}
+.Appointment-setter input{
+    background-color: antiquewhite;
+    margin-bottom: 10px;
+    box-sizing:content-box;
+    border-radius: 10px;   
+
+}
+
+
+.owner-info h2{
+    display: table;
+    background-color: rgb(9, 8, 7);
+    color: rgb(170, 161, 161);
+    font-size: medium;
+    font: italic;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+.Social-Media-Info {
+    bottom: 100px;
+    display: table;
+    font-size: medium;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font: italic;
+    margin-right: auto;
+   justify-content: right;
+}
+.Social-Media-Info h2{
+    display: table;
+    background-color: antiquewhite;
+    color: black;
+    font-size: medium;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font:italic;
+    justify-content: right;
+}
+.Social-Media-Info p{
+    color:#fff;
+    font-size:medium;
+    font-family: cursive;
+}
+
+.Registration h1 {
+    justify-content: center;
+    align-items: center;
+    text-align:center; 
+    border-radius: 10px;
+    flex-direction: column;
+    display: block;
+    
+    color:black;
+}
+.Registration input{
+background-color: antiquewhite;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.Registration label{
+font-display:initial;
+font-style: italic;
+border-radius: 5px;
+margin-bottom: 10px;
+font-weight:bold ;  
+}
+.Registration{
+
+    background-blend-mode: color;
+    background-position: 0cqmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:left; 
+    border-radius: 10px;
+    flex-direction: column;
+}
+.Registration select{
+    border-radius: 10px;
+    background-color: antiquewhite;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    
+    
+}
+.loginPage{
+    background-blend-mode: color;
+    background-position: 0cqmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:left; 
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+
+
+
+
+.loginPage h1{
+    justify-content: center;
+    align-items: center;
+    text-align:center; 
+    border-radius: 10px;
+    flex-direction: column;
+    display: block;
+    color:black;
+
+}
+.loginPage label{
+    font-display:initial;
+font-style: italic;
+border-radius: 5px;
+margin-bottom: 10px;
+font-weight:bold ;  
+
+}
+.loginPage input{
+    background-color: antiquewhite;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+}
+footer {
+    color: whitesmoke;
+}
+
+table {
+    width: 100%;
+    border-bottom: #2a0a0a; 
+    border-width: 40px;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+
+
+
+/* Use of Regex Validation */
+input[type="text"]:valid, input[type="email"]:valid, textarea:valid {
+    border: 2px solid green;
+}
+
+input[type="text"]:invalid, input[type="email"]:invalid, textarea:invalid {
+    border: 2px solid red;
+}
