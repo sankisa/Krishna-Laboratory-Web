@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon Prime Day Art & Craft Deals 2026 | artcraftdeals.com</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #e85d04;
+      --secondary: #f48c06;
+      --accent:    #6a0572;
+      --bg:        #fefaf6;
+      --card-bg:   #ffffff;
+      --text:      #1a1a2e;
+      --muted:     #6b7280;
+      --radius:    14px;
+      --shadow:    0 4px 24px rgba(0,0,0,0.09);
+      --prime:     #FF9900;
+      --prime-dark:#cc6600;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #f0e6d3;
+      padding: 0.75rem 1.25rem;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem;
+    }
+    .nav-logo {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--primary); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 1.2rem; list-style: none; flex-wrap: wrap; }
+    .nav-links a {
+      text-decoration: none; color: var(--text);
+      font-size: 0.88rem; font-weight: 500; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--prime); }
+    .nav-prime-badge {
+      background: linear-gradient(135deg, #FF9900, #cc6600);
+      color: #fff; font-size: 0.78rem; font-weight: 700;
+      padding: 0.3rem 0.85rem; border-radius: 999px;
+      text-decoration: none; white-space: nowrap;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(255,153,0,0.5); }
+      50%      { box-shadow: 0 0 0 8px rgba(255,153,0,0); }
+    }
+
+    /* ── Prime Day Hero Banner ── */
+    .prime-hero {
+      background: linear-gradient(135deg, #0F1111 0%, #1a1a2e 40%, #2d1b00 100%);
+      color: #fff; text-align: center;
+      padding: 4rem 1.5rem 3.5rem;
+      position: relative; overflow: hidden;
+    }
+    .prime-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(255,153,0,0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(232,93,4,0.15) 0%, transparent 50%);
+    }
+    .prime-hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+    .prime-logo-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,153,0,0.15);
+      border: 1px solid rgba(255,153,0,0.4);
+      border-radius: 999px; padding: 0.4rem 1.2rem;
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--prime); margin-bottom: 1.5rem;
+    }
+    .prime-hero h1 {
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900; line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .prime-hero h1 span { color: var(--prime); }
+    .prime-dates {
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 700; color: #fff;
+      background: rgba(255,153,0,0.2);
+      border: 1px solid rgba(255,153,0,0.4);
+      display: inline-block; padding: 0.5rem 1.5rem;
+      border-radius: 8px; margin: 1rem 0;
+    }
+    .prime-hero p {
+      font-size: 1rem; color: rgba(255,255,255,0.75);
+      max-width: 560px; margin: 0.75rem auto 2rem;
+    }
+
+    /* ── Countdown ── */
+    .countdown-wrap {
+      display: flex; justify-content: center; gap: 1rem;
+      margin: 1.5rem 0 2rem; flex-wrap: wrap;
+    }
+    .countdown-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,153,0,0.3);
+      border-radius: 12px; padding: 0.75rem 1.25rem;
+      min-width: 70px; text-align: center;
+    }
+    .countdown-box .num {
+      font-size: 2rem; font-weight: 900;
+      color: var(--prime); line-height: 1;
+    }
+    .countdown-box .lbl {
+      font-size: 0.65rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.6); margin-top: 0.25rem;
+    }
+    .countdown-ended {
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--prime); display: none;
+    }
+    .prime-cta {
+      display: inline-block;
+      background: linear-gradient(135deg, #FF9900, #cc6600);
+      color: #fff; font-weight: 800; font-size: 1rem;
+      text-decoration: none; padding: 0.9rem 2.5rem;
+      border-radius: 999px;
+      box-shadow: 0 6px 24px rgba(255,153,0,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .prime-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(255,153,0,0.5); }
+
+    /* ── Alert Strip ── */
+    .alert-strip {
+      background: linear-gradient(90deg, #FF9900, #ff6600, #FF9900);
+      background-size: 200% auto;
+      animation: shimmer 3s linear infinite;
+      color: #fff; text-align: center;
+      padding: 0.6rem 1rem; font-size: 0.85rem;
+      font-weight: 700;
+    }
+    @keyframes shimmer { to { background-position: 200% center; } }
+
+    /* ── Section ── */
+    .section { padding: 3.5rem 1.25rem; max-width: 1200px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .category-icon { font-size: 2.6rem; display: block; margin-bottom: 0.5rem; }
+    .section-header h2 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800; color: var(--text);
+    }
+    .section-header p { color: var(--muted); margin-top: 0.4rem; font-size: 0.97rem; }
+    .divider {
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, #FF9900, #cc6600);
+      border-radius: 999px; margin: 0.75rem auto 0;
+    }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card-bg); border-radius: var(--radius);
+      box-shadow: var(--shadow); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.22s, box-shadow 0.22s;
+      border: 1px solid #f0e6d3; position: relative;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(0,0,0,0.13); }
+    .prime-ribbon {
+      position: absolute; top: 12px; left: 12px; z-index: 3;
+      background: linear-gradient(135deg, #FF9900, #cc6600);
+      color: #fff; font-size: 0.65rem; font-weight: 800;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 0.25rem 0.7rem; border-radius: 999px;
+    }
+    .card-top {
+      background: linear-gradient(135deg, #fff8f0, #fdf4e0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; padding: 1.5rem; min-height: 110px;
+    }
+    .card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .card-badge {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: #FF9900; margin-bottom: 0.4rem;
+    }
+    .card h3 {
+      font-size: 1rem; font-weight: 700; color: var(--text);
+      margin-bottom: 0.5rem; line-height: 1.3;
+    }
+    .card p {
+      font-size: 0.85rem; color: var(--muted);
+      line-height: 1.6; margin-bottom: 0.9rem;
+    }
+    .rating {
+      font-size: 0.8rem; color: #FF9900;
+      font-weight: 600; margin-bottom: 0.75rem;
+    }
+    .pros { list-style: none; margin-bottom: 1.2rem; flex: 1; }
+    .pros li {
+      font-size: 0.83rem; color: var(--text);
+      padding: 0.2rem 0; display: flex;
+      align-items: flex-start; gap: 0.4rem;
+    }
+    .pros li::before { content: '✓'; color: #22c55e; font-weight: 800; flex-shrink: 0; }
+    .btn-prime {
+      display: block; text-align: center;
+      background: linear-gradient(135deg, #FF9900, #cc6600);
+      color: #fff; font-weight: 700; font-size: 0.9rem;
+      text-decoration: none; padding: 0.75rem 1rem;
+      border-radius: 8px; transition: filter 0.2s, transform 0.2s;
+      box-shadow: 0 3px 12px rgba(255,153,0,0.35);
+    }
+    .btn-prime:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+    /* ── Stats strip ── */
+    .stats-strip {
+      background: linear-gradient(135deg, #FF9900, #cc6600);
+      color: #fff; padding: 2rem 1.25rem; text-align: center;
+    }
+    .stats-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 2.5rem;
+    }
+    .stat h3 { font-size: 2rem; font-weight: 800; }
+    .stat p  { font-size: 0.85rem; opacity: 0.9; }
+
+    /* ── Back button ── */
+    .back-bar {
+      text-align: center; padding: 1.5rem;
+      background: #fff8f0;
+      border-bottom: 1px solid #f0e6d3;
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--primary); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--prime); }
+
+    /* ── Footer ── */
+    footer {
+      background: #1a1a2e; color: #d1d5db;
+      text-align: center; padding: 2.5rem 1.25rem;
+    }
+    footer .footer-logo {
+      font-size: 1.3rem; font-weight: 800;
+      color: #FF9900; margin-bottom: 0.75rem;
+    }
+    footer p { font-size: 0.8rem; line-height: 1.7; max-width: 680px; margin: 0.4rem auto; }
+    footer .footer-copy { color: #6b7280; font-size: 0.75rem; margin-top: 0.75rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      .nav-links { display: none; }
+      .grid { grid-template-columns: 1fr; }
+      .countdown-box .num { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="index.html" class="nav-logo">🎨 ArtCraftDeals</a>
+  <ul class="nav-links">
+    <li><a href="index.html">← Back to Main Site</a></li>
+    <li><a href="#markers">Markers</a></li>
+    <li><a href="#painting">Painting</a></li>
+    <li><a href="#crafts">Crafts</a></li>
+    <li><a href="#storage">Storage</a></li>
+  </ul>
+  <a href="https://www.amazon.com/?tag=artcrafthub-20" target="_blank" rel="noopener" class="nav-prime-badge">🔥 Shop Prime Day</a>
+</nav>
+
+<!-- Alert Strip -->
+<div class="alert-strip">
+  ⏰ AMAZON PRIME DAY IS LIVE — June 23-26 Only! Deals end when the sale ends! Shop NOW! 🛒
+</div>
+
+<!-- Hero -->
+<section class="prime-hero">
+  <div class="prime-hero-content">
+    <div class="prime-logo-badge">🔥 Amazon Prime Day 2026</div>
+    <h1>Best <span>Art & Craft</span><br>Prime Day Deals!</h1>
+    <div class="prime-dates">📅 June 23 – 26, 2026</div>
+    <p>Hand-picked top rated art & craft deals for artists, crafters, and creators — all with your Amazon Prime membership!</p>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-wrap" id="countdown-wrap">
+      <div class="countdown-box"><div class="num" id="cd-days">00</div><div class="lbl">Days</div></div>
+      <div class="countdown-box"><div class="num" id="cd-hours">00</div><div class="lbl">Hours</div></div>
+      <div class="countdown-box"><div class="num" id="cd-mins">00</div><div class="lbl">Mins</div></div>
+      <div class="countdown-box"><div class="num" id="cd-secs">00</div><div class="lbl">Secs</div></div>
+    </div>
+    <div class="countdown-ended" id="countdown-ended">🔥 PRIME DAY IS LIVE — Shop Now!</div>
+
+    <a href="#markers" class="prime-cta">🛒 See All Prime Day Deals ↓</a>
+  </div>
+</section>
+
+<!-- Stats Strip -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat"><h3>20+</h3><p>Art & Craft Deals</p></div>
+    <div class="stat"><h3>⭐ 4.7+</h3><p>Avg Customer Rating</p></div>
+    <div class="stat"><h3>4 Days</h3><p>Sale Duration</p></div>
+    <div class="stat"><h3>🚀 Fast</h3><p>Prime Delivery</p></div>
+  </div>
+</div>
+
+<!-- ── Section 1: Markers & Pens ── -->
+<section class="section" id="markers">
+  <div class="section-header">
+    <span class="category-icon">🖊️</span>
+    <h2>Markers, Pens & Brushes</h2>
+    <p>Top rated markers and brush sets on Prime Day sale</p>
+    <div class="divider"></div>
+  </div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🖊️</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Ohuhu Alcohol Markers 200 Colors</h3>
+        <p>AP Certified double-tipped art marker set — chisel and fine dual tips. Refillable and loved by professional artists!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.8 / 5</div>
+        <ul class="pros">
+          <li>200 vibrant colors in one set</li>
+          <li>Dual tip — chisel &amp; fine</li>
+          <li>Refillable — save money long term</li>
+          <li>AP certified non-toxic</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B07WPS5TH4?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🎨</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Coogert Dual Tip Acrylic Paint Markers</h3>
+        <p>Fine tip and brush tip permanent acrylic markers — perfect for rocks, canvas, wood, and more!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>Dual tip — fine &amp; brush</li>
+          <li>Permanent on most surfaces</li>
+          <li>Vibrant, quick-dry ink</li>
+          <li>Great for rock painting &amp; crafts</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0D6LHF267?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🖌️</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Artist Paint Brush Set of 18</h3>
+        <p>Complete set includes 18 brushes, palette knife, sponge, and organizing case. Perfect for all paint types!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>18 different brush shapes</li>
+          <li>Includes palette knife &amp; sponge</li>
+          <li>Works with acrylic, oil &amp; watercolor</li>
+          <li>Comes with organizer case</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B07YYHC6RB?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🎨</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>6/12/24 Painting Brush Palette Set</h3>
+        <p>Versatile painting brush and palette set — choose from 6, 12, or 24 piece options for every skill level.</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.8 / 5</div>
+        <ul class="pros">
+          <li>Multiple set sizes available</li>
+          <li>Includes mixing palette</li>
+          <li>Great for beginners &amp; pros</li>
+          <li>Easy to clean bristles</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0FK4KFWNJ?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Section 2: Painting Supplies ── -->
+<section class="section" id="painting" style="background:linear-gradient(135deg,#fff8f0,#fdf4ff);border-top:3px solid var(--prime);border-bottom:3px solid var(--prime);">
+  <div class="section-header">
+    <span class="category-icon">🎨</span>
+    <h2>Painting Supplies & Kits</h2>
+    <p>Complete painting sets and premium supplies on Prime Day sale</p>
+    <div class="divider"></div>
+  </div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🖼️</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>MEEDEN Professional Art Set with French Easel</h3>
+        <p>Complete professional artist kit with French easel, acrylic paints (10-60ML), brushes, and canvas. Perfect starter kit!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>Full French easel included</li>
+          <li>Acrylic paints 10-60ML range</li>
+          <li>Brushes + canvas included</li>
+          <li>Great for adults &amp; beginners</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B07VTL4S15?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🖌️</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Caliart Acrylic Paint Set with 12 Brushes</h3>
+        <p>Premium acrylic paint set bundled with 12 professional brushes — everything you need to start painting today!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>Rich, vibrant acrylic colors</li>
+          <li>12 brushes included</li>
+          <li>Non-toxic &amp; water soluble</li>
+          <li>Works on canvas, wood &amp; paper</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0F66PGD8R?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🎨</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Shuttle Art Acrylic Paint Set</h3>
+        <p>High quality acrylic paints in vibrant shades — great for canvas, paper, wood, fabric and more creative projects!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>Wide range of vivid colors</li>
+          <li>Thick &amp; smooth consistency</li>
+          <li>Multi-surface compatible</li>
+          <li>Fast drying formula</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0DRTC656B?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">📓</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Ohuhu Hardcover Marker Pad</h3>
+        <p>Premium bleed-proof marker paper in a hardcover pad — perfect for alcohol markers, pens, and detailed artwork.</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.8 / 5</div>
+        <ul class="pros">
+          <li>Bleed-proof for markers</li>
+          <li>Sturdy hardcover binding</li>
+          <li>Smooth surface for detail work</li>
+          <li>Compatible with Ohuhu &amp; other markers</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B089Y2K38D?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🖨️</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>HTVRONT Sublimation Paper 120 Sheets</h3>
+        <p>120 sheets of premium sublimation paper — compatible with sublimation ink for mugs, shirts, and more DIY projects!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.8 / 5</div>
+        <ul class="pros">
+          <li>120 sheets per pack</li>
+          <li>Vibrant color transfer</li>
+          <li>Works with sublimation ink</li>
+          <li>Great for mugs, shirts &amp; more</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B09QMWG1WL?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Section 3: Resin & Specialty Crafts ── -->
+<section class="section" id="crafts">
+  <div class="section-header">
+    <span class="category-icon">✨</span>
+    <h2>Resin, Crafts & DIY Supplies</h2>
+    <p>Specialty craft supplies on Prime Day sale</p>
+    <div class="divider"></div>
+  </div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">💎</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Teexpert Crystal Clear Epoxy Resin Kit</h3>
+        <p>Food safe, bubble-free, anti-yellowing epoxy resin — perfect for jewellery, coasters, art, and decorative projects!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>Crystal clear finish</li>
+          <li>Food safe formula</li>
+          <li>Anti-yellowing technology</li>
+          <li>Bubble-free self-leveling</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0D7VSQKCK?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🧪</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Smooth-Cast 300 Liquid Plastic</h3>
+        <p>Bright white, ultra low viscosity liquid plastic for casting — great for molds, figurines, and creative 3D projects!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>Ultra low viscosity for detail</li>
+          <li>Bright white finish</li>
+          <li>Fast cure time</li>
+          <li>Professional casting results</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0B2KVZRG7?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🌸</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Nuanchu Pressed Flowers Bulk Dried Wildflowers</h3>
+        <p>Beautiful real dried wildflowers and leaves for resin art, card making, scrapbooking, candle decorating and more!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>Real pressed wildflowers</li>
+          <li>Bulk pack — great value</li>
+          <li>Perfect for resin &amp; paper crafts</li>
+          <li>Natural earthy varieties</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0DT6WFMHH?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🧼</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Velona MILK Glycerin Soap Base — Melt &amp; Pour</h3>
+        <p>SLS/SLES free natural melt and pour soap base — perfect for DIY handmade soap crafting projects at home!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>SLS &amp; SLES free formula</li>
+          <li>Easy melt &amp; pour process</li>
+          <li>Great for beginners</li>
+          <li>Moisturising milk base</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0CD8793TP?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🌈</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Peryiter 500 Pcs Pipe Cleaners for DIY</h3>
+        <p>500 colorful chenille stems — perfect for DIY flower bouquets, graduation decorations, kids craft projects and more!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>500 pieces — huge value pack</li>
+          <li>Multiple bright colors</li>
+          <li>Flexible &amp; easy to bend</li>
+          <li>Great for kids &amp; adults</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0DDCJ1HDD?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🎀</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Flezoo 25 Yards Satin Ribbon 1.5 inch</h3>
+        <p>25 yards of single face polyester satin ribbon — perfect for hair bows, gift wrapping, sewing, and craft projects!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>25 yards — great value</li>
+          <li>Silky smooth satin finish</li>
+          <li>Multiple color options</li>
+          <li>Perfect for bows &amp; gift wrapping</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0D17S5511?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Section 4: Jewelry & Accessories ── -->
+<section class="section" style="background:linear-gradient(135deg,#fff8f0,#fdf4ff);border-top:3px solid var(--prime);border-bottom:3px solid var(--prime);">
+  <div class="section-header">
+    <span class="category-icon">💍</span>
+    <h2>Jewellery Making & Accessories</h2>
+    <p>Craft jewellery and accessories supplies on Prime Day sale</p>
+    <div class="divider"></div>
+  </div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🔑</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Audab 360 Pcs Keychain Bulk for Crafts</h3>
+        <p>360 pieces including keychain rings, chains, jump rings, and screw eye pins — everything for jewellery making!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.8 / 5</div>
+        <ul class="pros">
+          <li>360 pieces in one set</li>
+          <li>Includes rings, chains &amp; pins</li>
+          <li>Perfect for jewellery making</li>
+          <li>Great for craft &amp; DIY projects</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0FHD2BJ8V?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">📌</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>Ceenna 100 Pcs Enamel Pins Bulk — Lapel Pins</h3>
+        <p>100 colorful enamel pins and brooches — perfect for backpack decoration, gifts, and fun accessory projects!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>100 pieces bulk pack</li>
+          <li>Colorful enamel finish</li>
+          <li>Great for backpacks &amp; bags</li>
+          <li>Fun for gifting &amp; collecting</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0GHK2JY2X?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🧵</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>25 Pcs Sewing Machine Bobbins — Class 15</h3>
+        <p>25 plastic bobbins with case — Class 15 / SA156 compatible, fits most Brother and Singer sewing machines!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.8 / 5</div>
+        <ul class="pros">
+          <li>25 bobbins included</li>
+          <li>Comes with storage case</li>
+          <li>Class 15 / SA156 compatible</li>
+          <li>Fits Brother &amp; Singer machines</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B0BBVJ716S?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── Section 5: Storage & Tools ── -->
+<section class="section" id="storage">
+  <div class="section-header">
+    <span class="category-icon">🗂️</span>
+    <h2>Art Storage & Tools</h2>
+    <p>Keep your art supplies organised with these Prime Day deals</p>
+    <div class="divider"></div>
+  </div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">🗂️</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>WEWLINE Art Storage Organizer</h3>
+        <p>Keep all your art supplies perfectly organized — ideal for markers, pens, brushes, and small craft supplies!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>Multiple compartments</li>
+          <li>Fits markers &amp; brushes</li>
+          <li>Keeps workspace tidy</li>
+          <li>Durable build quality</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B08LCDMHS6?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="prime-ribbon">🔥 Prime Deal</div>
+      <div class="card-top">✂️</div>
+      <div class="card-body">
+        <div class="card-badge">🔥 Prime Day Deal</div>
+        <h3>WORKLION 9"×12" Self Healing PVC Cutting Mat</h3>
+        <p>Double sided gridded rotary cutting board — perfect for fabric, quilting, sewing, scrapbooking, and craft projects!</p>
+        <div class="rating">⭐⭐⭐⭐⭐ 4.7 / 5</div>
+        <ul class="pros">
+          <li>Full 9"×12" size</li>
+          <li>Double sided with grid lines</li>
+          <li>Self-healing PVC material</li>
+          <li>Great for sewing &amp; scrapbooking</li>
+        </ul>
+        <a href="https://www.amazon.com/dp/B07MX1KXQ2?tag=artcrafthub-20" target="_blank" rel="noopener noreferrer" class="btn-prime">🛒 Shop Prime Deal on Amazon</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Back to Main Site -->
+<div class="back-bar">
+  <a href="index.html" class="back-btn">← Back to ArtCraftDeals.com Main Site</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="https://www.amazon.com/?tag=artcrafthub-20" target="_blank" rel="noopener" class="back-btn" style="color:#FF9900;">🛒 Browse All Prime Day Deals on Amazon</a>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">🎨 ArtCraftDeals.com</div>
+  <p>Your trusted source for the best art &amp; craft deals on Amazon. Hand-picked products with top customer ratings.</p>
+  <p style="margin-top:0.75rem;color:#9ca3af;font-size:0.75rem;">
+    As an Amazon Associate I earn from qualifying purchases. Amazon Prime Day deals are valid June 23-26, 2026 for Prime members. Prices and availability may change at any time.
+  </p>
+  <div class="footer-copy">© 2026 ArtCraftDeals.com · artcraftdeals.com</div>
+</footer>
+
+<!-- Countdown Script -->
+<script>
+  const primeEnd = new Date('2026-06-26T23:59:59');
+  const primeStart = new Date('2026-06-23T00:00:00');
+
+  function updateCountdown() {
+    const now = new Date();
+
+    if (now >= primeEnd) {
+      document.getElementById('countdown-wrap').style.display = 'none';
+      document.getElementById('countdown-ended').style.display = 'block';
+      document.getElementById('countdown-ended').textContent = '⏰ Prime Day has ended. Check back for more deals!';
+      return;
+    }
+
+    const target = now < primeStart ? primeStart : primeEnd;
+    const diff = target - now;
+
+    const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+
+    if (now >= primeStart) {
+      document.getElementById('countdown-ended').style.display = 'block';
+      document.getElementById('countdown-ended').textContent = '🔥 PRIME DAY IS LIVE — Shop Now Before It Ends!';
+    }
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
